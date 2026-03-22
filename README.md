@@ -16,7 +16,7 @@ Matrix3x3:
 | Xy  Yy  Ty |                                                
 |  0   0   1 |                                                
 
---- Vector2 Functions ---
+--- Vector2 Functions ---                                                  
 Vector2 V2_zero(void) // - Returns the zero vector (0, 0)                                                   
 Vector2 V2_one(void) // - Returns the one vector (1, 1)                                                  
 Vector2 V2_add(const Vector2 &v1,const Vector2 &v2) // - Adds two vectors component-wise                                                  
