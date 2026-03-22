@@ -66,7 +66,7 @@ extern "C" {
 		return V2_Length(v);
 	};
 
-	inline float V2_DistanceSqr(const Vector2 &v1,const Vector2 &v2) {
+	inline float V2_DistanceSqrt(const Vector2 &v1,const Vector2 &v2) {
 		Vector2 v = { v1.x - v2.x,v1.y - v2.y };
 		return V2_LengthSqrt(v);
 	};
@@ -117,7 +117,7 @@ extern "C" {
 
 		return result;
 	};
-	Vector2 V2_Lerp(const Vector2 &v1,const Vector2 &v2,const float &amount) {
+	Vector2 V2_Lerp(const Vector2 &v1,const Vector2 &v2,float &amount) {
 		if (amount < 0.0f) amount = 0.0f;
 		if (amount > 1.0f) amount = 1.0f;
 		return { v1.x + (v2.x - v1.x) * amount,v1.y + (v2.y - v1.y) * amount };
