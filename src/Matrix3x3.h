@@ -1,5 +1,4 @@
 #pragma once
-#pragma once
 #ifdef __cplusplus
 #include <math.h>
 #include "Utility.h"
@@ -57,16 +56,16 @@ Matrix3 M3_IdentityStart(void) {
 }
 Matrix3 M3_Add(const Matrix3& M3left, const Matrix3& M3right) {
     Matrix3 result = M3_IdentityStart();
-    for (size_t i = 0; i < 9; i++)
+    for (int i = 0; i < 9; i++)
     {
-        result.v[i] += M3left.v[i] + M3right.v[i];
+        result.v[i] = M3left.v[i] + M3right.v[i];
     }
     return result;
 }
 
 Matrix3 M3_Subtract(const Matrix3& M3left, const Matrix3& M3right) {
     Matrix3 result = M3_IdentityStart();
-    for (size_t i = 0; i < 9; i++)
+    for (int i = 0; i < 9; i++)
     {
         result.v[i] += M3left.v[i] - M3right.v[i];
     }

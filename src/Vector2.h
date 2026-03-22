@@ -68,7 +68,7 @@ extern "C" {
 
 	inline float V2_DistanceSqr(const Vector2 &v1,const Vector2 &v2) {
 		Vector2 v = { v1.x - v2.x,v1.y - v2.y };
-		return V2_LengthSqr(v);
+		return V2_LengthSqrt(v);
 	};
 
 	float V2_Angle(const Vector2 &v1,const Vector2 &v2) {
@@ -98,11 +98,6 @@ extern "C" {
 		return v;
 	};
 
-	inline Vector2 V2_Negate(const Vector2 &v1) {
-		Vector2 v = { -v1.x,-v1.y };
-		return v;
-	};
-
 	inline Vector2 V2_Divide(const Vector2& v1, const Vector2& v2) {
 		Vector2 v = { v1.x / v2.x,v1.y / v2.y };
 		return v;
@@ -118,11 +113,11 @@ extern "C" {
 		Vector2 result = V2_zero();
 
 		result.x = (v.x * mat.Xx) + (v.y * mat.Xy) + mat.Tx*mat.m2;
-		result.y = (v.x * mat.Yx) + (v.y * mat.Yx) + mat.Ty*mat.m2;
+		result.y = (v.x * mat.Yx) + (v.y * mat.Yy) + mat.Ty*mat.m2;
 
 		return result;
 	};
-	Vector2 V2_Lerp(const Vector2 &v1,const Vector2 &v2,float &amount) {
+	Vector2 V2_Lerp(const Vector2 &v1,const Vector2 &v2,const float &amount) {
 		if (amount < 0.0f) amount = 0.0f;
 		if (amount > 1.0f) amount = 1.0f;
 		return { v1.x + (v2.x - v1.x) * amount,v1.y + (v2.y - v1.y) * amount };
