@@ -1,5 +1,7 @@
 #pragma once
 #ifdef __cplusplus
+#include <math.h>
+#include "Utility.h"
 extern "C" {
 #endif
 
@@ -49,7 +51,7 @@ extern "C" {
 		float sqr = v.x * v.x + v.y * v.y;
 		return sqrt(sqr);
 	};
-	inline float V2_LengthSqr(const Vector2 &v) {
+	inline float V2_LengthSqrt(const Vector2 &v) {
 		float sqrt = v.x * v.x + v.y * v.y;
 		return sqrt;
 	};
@@ -108,7 +110,7 @@ extern "C" {
 
 	inline Vector2 V2_Normalize(const Vector2& v1) {
 		float length = V2_Length(v1);
-		if (length == 0.0f) return { 0, 0 };
+		if (length < 0.000001f) return { 0.0f, 0.0f };
 		Vector2 v = {v1.x/length,v1.y/length};
 		return v;
 	};
@@ -122,7 +124,7 @@ extern "C" {
 	};
 	Vector2 V2_Lerp(const Vector2 &v1,const Vector2 &v2,float &amount) {
 		if (amount < 0.0f) amount = 0.0f;
-		if (amount > 0.0f) amount = 1.0f;
+		if (amount > 1.0f) amount = 1.0f;
 		return { v1.x + (v2.x - v1.x) * amount,v1.y + (v2.y - v1.y) * amount };
 	};
 	Vector2 V2_Reflect(const Vector2 &v,const Vector2 &normal) {
@@ -150,7 +152,7 @@ extern "C" {
 		Vector2 dir = V2_Normalize(diff);
 		return V2_add(begin, V2_Scale(dir, maxDistance));
 	};
-	Vector2 Vector2Invert(Vector2 v) {
+	Vector2 V2_Invert(Vector2 v) {
 		return { -v.x,-v.y };
 	};
 
@@ -171,7 +173,7 @@ extern "C" {
 	};
 	int V2_Equal(Vector2 p, Vector2 q) {
 		float gap = 0.00001f;
-		if (fabs(p.x - q.x) < gap && fabs(p.y - p.y) < gap) return 1;
+		if (fabs(p.x - q.x) < gap && fabs(p.y - q.y) < gap) return 1;
 		return 0;
 	};
 #ifdef __cplusplus

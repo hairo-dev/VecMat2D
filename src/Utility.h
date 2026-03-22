@@ -1,5 +1,6 @@
 #pragma once
 #include <math.h>
+#include "Utility.h"
 #ifdef __cplusplus
 extern "C" {
 #endif 
