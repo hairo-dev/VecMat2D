@@ -10,11 +10,11 @@ Include the headers in your C++ project:
 
 #include "include/config.h"
 
--------------
-Matrix3x3:
-| Xx  Yx  Tx |
-| Xy  Yy  Ty |
-|  0   0   1 |
+-------------                                                
+Matrix3x3:                                                
+| Xx  Yx  Tx |                                                
+| Xy  Yy  Ty |                                                
+|  0   0   1 |                                                
 
 --- Vector2 Functions ---                                                                                                                                 
 V2_Add                                                                                                                                                 
